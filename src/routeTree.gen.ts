@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as HelloWorldRouteImport } from './routes/hello-world'
+import { Route as DataStructureRouteImport } from './routes/data-structure'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const HelloWorldRoute = HelloWorldRouteImport.update({
   id: '/hello-world',
   path: '/hello-world',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataStructureRoute = DataStructureRouteImport.update({
+  id: '/data-structure',
+  path: '/data-structure',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/data-structure': typeof DataStructureRoute
   '/hello-world': typeof HelloWorldRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/data-structure': typeof DataStructureRoute
   '/hello-world': typeof HelloWorldRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/data-structure': typeof DataStructureRoute
   '/hello-world': typeof HelloWorldRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/hello-world'
+  fullPaths: '/' | '/about' | '/data-structure' | '/hello-world'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/hello-world'
-  id: '__root__' | '/' | '/about' | '/hello-world'
+  to: '/' | '/about' | '/data-structure' | '/hello-world'
+  id: '__root__' | '/' | '/about' | '/data-structure' | '/hello-world'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  DataStructureRoute: typeof DataStructureRoute
   HelloWorldRoute: typeof HelloWorldRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/hello-world'
       fullPath: '/hello-world'
       preLoaderRoute: typeof HelloWorldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-structure': {
+      id: '/data-structure'
+      path: '/data-structure'
+      fullPath: '/data-structure'
+      preLoaderRoute: typeof DataStructureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  DataStructureRoute: DataStructureRoute,
   HelloWorldRoute: HelloWorldRoute,
 }
 export const routeTree = rootRouteImport
