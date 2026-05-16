@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite dev --port 3100",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -12,22 +12,35 @@
   "dependencies": {
     "@tanstack/react-query": "^5.100.10",
     "@tanstack/react-router": "^1.170.1",
+    "@tanstack/react-start": "^1.168.2",
+    "@tanstack/react-devtools": "^0.10.5",
+    "@tanstack/react-store": "^0.11.0",
+    "@tanstack/react-router-ssr-query": "^1.166.12",
+    "@tanstack/react-router-devtools": "latest",
+    "@tanstack/react-query-devtools": "latest",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.15.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.3.0",
+    "@tanstack/devtools-vite": "^0.7.0",
+    "@tanstack/router-devtools": "^1.167.0",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.5.0",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
-    "typescript": "~6.0.2",
+    "nitro": "^3.0.260429-beta",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.12"
+    "vite": "^8.0.13"
   }
 }

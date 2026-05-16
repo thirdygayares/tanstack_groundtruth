@@ -1,0 +1,1 @@
+import{t as e}from"./index-BYZmAbvR.js";var t=e(),n=()=>(0,t.jsx)(`h1`,{children:`Hello TanStack Start!`});export{n as component};
